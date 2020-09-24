@@ -5,8 +5,8 @@ class Node:
 
 
 class LinkedList:
-    def __init__(self, size):
-        self.size = size
+    def __init__(self):
+        self.size = 0
         self.head = None
         self.last = None
 
@@ -19,7 +19,7 @@ class LinkedList:
         return p
 
     def insert(self, data, index):
-        if index < 0 or index >= self.size:
+        if index < 0 or index > self.size:
             raise Exception("超出链表节点范围")
         node = Node(data)
         if self.size == 0:
@@ -39,6 +39,7 @@ class LinkedList:
             prev_node = self.get(index - 1)
             node.next = prev_node.next
             prev_node.next = node
+        self.size += 1
 
     def remove(self, index):
         if index < 0 or index >= self.size:
@@ -71,7 +72,7 @@ class LinkedList:
             p = p.next
 
 
-l = LinkedList(10)
+l = LinkedList()
 l.insert(3, 0)
 l.insert(4, 0)
 l.insert(31, 1)
