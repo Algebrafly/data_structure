@@ -47,6 +47,7 @@ class MyStack:
         if self.size == 0:
             self.top = node
         else:
+            # 头插法
             node.next = self.top
             self.top = node
         self.size += 1
